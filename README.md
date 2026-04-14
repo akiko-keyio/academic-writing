@@ -1,32 +1,19 @@
 # academic-writing
 
-A portable skill for refining academic writing — paper drafts, abstracts, introductions, methods, results, discussions, conclusions — aimed at high-impact peer-reviewed journals (IEEE, Nature/Science sub-journals, Elsevier, Springer, APA).
-
-The skill is a self-contained set of instructions and references. It can be loaded into any AI assistant or agent framework that supports Markdown-based skills, or consulted directly as a writing guide by a human author.
-
-## Guiding principle
-
-> Communicate valuable and verifiable ideas precisely and efficiently.
+A portable skill for refining academic writing for high-impact peer-reviewed journals. Works with any AI assistant that supports skills.
 
 ## Usage
 
-Provide a draft section in plain text, Markdown, or LaTeX, and ask for a refinement:
+Hand the agent any section of a paper. The agent will:
 
-> "Refine this methodology section for an Elsevier journal: …"
+1. **Identify key points** — the ideas the reader must take away from the section — and flag any that are missing, unsupported, or ambiguous rather than fabricate them.
+2. **Organize** them so each builds on what the reader already knows, with supporting details nested under the key point they serve.
+3. **Refine language** for precision (every expression maps to one meaning) and efficiency (every word, sentence, and paragraph contributes).
 
-For a surface pass only, add `light edit — grammar and punctuation only` to skip the structural review.
-
-## Files
-
-| File | Purpose |
-| --- | --- |
-| `SKILL.md` | The workflow (4 steps: identify key points → organize → refine language → output) plus constraints. |
-| `reference/section-guide.md` | Per-section expectations (Title, Abstract, Intro, Methods, Experiments, Results, Discussion, Conclusion). |
-| `reference/word-choice.md` | Word-level guidance: fancy→simple, filler, weak verbs, hedging, acronyms. |
-| `reference/sentence-construction.md` | Sentence- and paragraph-level guidance: flow, connectors, voice, tense, paragraph function. |
+To skip the structural review and only fix grammar, spelling, and punctuation, ask for a light edit.
 
 ## Output
 
-1. Refined text — input format preserved (LaTeX in → LaTeX out).
+1. Refined text — input format preserved (LaTeX in → LaTeX out; `\cite{}`, `\ref{}`, equations, and macros untouched).
 2. Change notes for non-obvious edits.
 3. Flags for missing citations, unsupported claims, or logical gaps.
