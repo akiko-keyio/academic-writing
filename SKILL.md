@@ -5,10 +5,6 @@ description: Refine academic writing for high-impact peer-reviewed journals (e.g
 
 # Academic Writing
 
-**When to use**: The user hands over a draft section (abstract, introduction, methods, results, discussion, or conclusion) in plain text, Markdown, or LaTeX and asks to improve, polish, refine, edit, or proofread it.
-
-**Example invocation**: "Refine this methodology section for an Elsevier journal — [paste draft]." For a surface pass only, add "light edit — grammar and punctuation only" to skip the Step 1–2 structural review.
-
 ## First Principle
 
 > **Communicate valuable and verifiable ideas precisely and efficiently.**
