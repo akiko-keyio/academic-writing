@@ -1,0 +1,103 @@
+# Sentence Construction
+
+The reader encounters text one sentence at a time. Good structure respects this: it delivers known information before new, connects each statement to what came before, and gives every paragraph a single clear purpose. When structure fails, the reader re-reads — or worse, misreads.
+
+This guide covers: information ordering, logical connections, voice and tense, paragraph architecture, and narrative framing of data.
+
+---
+
+## 1. Sentence Length and Density
+
+Average sentence length in most journals is 20–26 words. This is not a rigid rule but a useful diagnostic: if your sentence is much longer, check whether the reader has to re-read it.
+
+**Long sentences fail** when the relationship between components becomes hard to track. Warning signs: more than one *and*, more than one *which*, too many prepositions, too many nouns packed together. If a sentence has any of these, split it.
+
+**Consecutive long sentences are worse than individual ones.** Vary the length — a short sentence after two medium ones gives the reader breathing room and can carry emphasis.
+
+## 2. Information Ordering Within a Sentence
+
+Place known information first, new information later. The known part anchors the reader; the new part is what the sentence contributes. This also creates natural sentence-to-sentence linkage: the new information at the end of sentence N becomes the known information at the start of sentence N+1.
+
+**Bad:** "A 12.3% improvement in thermal conductivity was observed when graphene nanoplatelets were added at 0.5 wt%."
+**Better:** "Adding graphene nanoplatelets at 0.5 wt% improved thermal conductivity by 12.3%."
+
+The second version leads with the action (which the reader already expects from the methods), and ends with the result (which is new).
+
+## 3. Sentence Start-Up
+
+How a sentence begins sets the reader's frame for processing everything that follows.
+
+**Connect to the previous sentence** by opening with an overlapping repeat, a pro-form (*This result*, *These findings*), or a signalling connector (*However*, *In contrast*). Don't leave the reader to guess the relationship.
+
+**Add a noun after *this/these/that/those*** — "This suggests..." is vague; "This temperature dependence suggests..." is clear. The reader shouldn't have to look back to figure out what *this* refers to.
+
+**Avoid opening with -ing forms or prepositions** (especially *for* and *with*) — they delay the subject and make the sentence harder to parse.
+
+## 4. Signalling Connectors
+
+Words like *moreover*, *therefore*, *however* are not glue — they are directional signals. Each one tells the reader what relationship the next sentence has to the previous one. The wrong connector sends the reader in the wrong direction.
+
+| Connector | Meaning — check before using |
+|---|---|
+| therefore | Direct consequence. Is what follows truly caused by what came before? |
+| however | Contrast. Is there a real opposition to the previous sentence? |
+| moreover | Addition of a *supporting* point. Does this strengthen the same argument? |
+| for example | Illustration. Does what follows genuinely exemplify the general claim? |
+| in other words | Restatement. Are you truly saying the same thing differently, or introducing something new? |
+
+**Notice:** Using *moreover* or *furthermore* as generic paragraph glue when there is no additive logical relationship. If the connection is simply "here is the next point," no connector is needed — just start the sentence.
+
+## 5. Passive Voice and Ownership
+
+**Agentless passives** (*was performed*, *was analysed* — without saying by whom) hide the actor. This is fine for well-known standard procedures ("Samples were centrifuged at 3000 rpm"), but costs clarity when describing your own contribution. If the reader can't tell whether the work is yours, a predecessor's, or the field's consensus, the sentence has failed.
+
+**Rule of thumb:** Use active voice (*we measured*, *our model predicts*) when the identity of the actor matters — especially for novel contributions. Use passive voice when the actor is irrelevant and the focus should be on what was done or observed.
+
+**Watch for passives buried at the end of long sentences.** The reader has to wait too long to find out what happened:
+
+**Bad:** "Images and patient data from seventeen patients who were suspected of having PH and who had also undergone cardiac MRI and right-sided heart catheterization between 2002 and 2008 were retrospectively reviewed."
+**Better:** "We retrospectively reviewed images and patient data from seventeen patients suspected of having PH who had undergone cardiac MRI and right-sided heart catheterization between 2002 and 2008."
+
+## 6. Disambiguating *We*
+
+Impersonal *we/us/our* can mean "we the authors," "we the research community," or "we, everyone." If you use *we* for both yourself and the broader field within the same paper, confusion is inevitable.
+
+For field-wide capabilities, prefer impersonal constructions: "It is now possible to design proteins with new functions" rather than "We can now design proteins with new functions" — unless *you* are the ones who made it possible.
+
+## 7. Verb Tense
+
+Tense is not decoration — it communicates how you want the reader to treat the information.
+
+| Tense | Signal to reader | Use for |
+|---|---|---|
+| Past simple (*we found*, *X occurred*) | Reporting what happened | Your specific results, specific past studies |
+| Present simple (*X occurs*, *the model predicts*) | Stating facts or established truths | General claims, things you believe to be true beyond your study |
+
+"We found that X occurred" is a report of your findings. "We found that X occurs" is a claim that your findings are generalizable facts. The present tense is bolder — use it when the evidence warrants it.
+
+**Be consistent within a section.** If you switch tense, make sure there is a reason and the reader can follow it.
+
+## 8. Paragraph Structure
+
+Plan the function of each paragraph before writing it. Each paragraph should have a single function — describe one result, introduce one concept, make one argument.
+
+**Ideal paragraph length** in research journals is 150–170 words. Whole-page paragraphs overwhelm the reader; clusters of single-sentence paragraphs fragment the argument.
+
+**Start with a narrative entry statement** that tells the reader what the paragraph is doing: *To address this question, we...* / *These results suggest that...* / *Two potential alternatives exist for...* Avoid opening with a claim that only makes sense after the reader finishes the paragraph — front-load the function.
+
+**Every sentence must serve the paragraph's function.** If a sentence doesn't fit, move it or delete it — don't let it float.
+
+## 9. Wrapping Data in Narrative
+
+Data alone means nothing to the reader. Don't just state numbers — comment on what they mean for the argument:
+
+**Naked:** "The conversion rate was 43%."
+**Framed:** "The conversion rate reached 43%, exceeding the theoretical minimum of 38%."
+
+The framing tells the reader whether 43% is good news or bad news. Without it, the reader has to build the interpretation themselves — and may build the wrong one.
+
+This also applies to figures and tables. "Figure 3 shows the temperature profile" tells the reader nothing about *why* they should look at Figure 3. "Figure 3 shows that the temperature profile deviates from the predicted curve above 600°C" gives the reader a reason to look and a frame for what to see.
+
+## 10. Relevance — The "So What?" Test
+
+After writing each sentence, consider whether the reader knows *why* you wrote it. If a potential "so what?" lingers at the end, resolve it — add a phrase like *suggesting that...*, *which means that...*, or *consistent with...*. Don't leave the reader to guess the relevance.
