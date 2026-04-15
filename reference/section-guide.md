@@ -58,6 +58,22 @@ Typically 1–2 pages. The most-read section after the abstract. Its job is to m
 
 ---
 
+## Data / Datasets / Materials
+
+Common as a standalone section in Earth-, environmental-, remote-sensing-, and observational-science papers where the data pipeline is substantial enough to merit its own treatment, upstream of the methods that operate on the data. In other fields this content is folded into Experiments (Datasets) or Methods (Materials); the principles below apply either way.
+
+**Structure**:
+1. **Source description** — for each data product: provider, version, spatial/temporal resolution, coverage window. Name the document, DOI, or access point so the reader could request the same inputs.
+2. **Quality control** — selection criteria, filtering thresholds, handling of missing or low-confidence values. State what is excluded and why.
+3. **Preprocessing & integration** — transformations applied before downstream use (coordinate alignment, height normalization, unit conversion). When multiple sources are combined, describe the alignment strategy and the fusion rule (interpolation, Kriging, weighted mean, model-based merger).
+4. **Train/test or calibration/validation splits** — if the data serve both model fitting and evaluation, declare the split explicitly. Independence between splits is a claim the reader must be able to verify.
+
+**Avoid**: Reporting raw data volumes without context; skipping why subsets were excluded; hiding method-level decisions here (if a step is part of the model, move it to Methods).
+
+**Check**: Could a reader obtain the same source products and reproduce the preprocessed inputs from what is written here?
+
+---
+
 ## Methods / Methodology
 
 The core technical section. Detail must be sufficient for an independent researcher to replicate the study.
@@ -154,3 +170,17 @@ Typically 0.5–0.75 pages. A concise exit, not a second abstract.
 **Avoid**: Repeating the methodology; introducing new information or evidence; grandiose claims ("This work will transform the field"); excessive hedging.
 
 **Check**: If the reader remembers only the last paragraph, do they retain the right message?
+
+---
+
+## Appendix
+
+Use an appendix for material that would interrupt the main narrative but is necessary for verification: long derivations, explicit formulae and symbol tables, algorithm pseudocode, extended tables, or supporting results that reinforce but do not carry a main claim.
+
+**Structure**: one topic per appendix; label A, B, C in order of first reference from the body. Each appendix is self-contained — the reader should be able to land in it from a single pointer in the main text and understand it without reading neighboring appendices.
+
+**Typical content**: full derivations skipped in Methods; complete notation tables; reagent or instrument specifications; ablations or sensitivity studies that do not belong in the main Results; raw or expanded figures.
+
+**Avoid**: Orphaned appendices never referenced from the body (if no one needs it, cut it); duplicating content already in the body rather than extending it; introducing new claims that the body relies on — the body should stand alone.
+
+**Check**: For every appendix, is there a pointer to it from the main text at the moment the reader needs it, and does the appendix deliver what the pointer promised?

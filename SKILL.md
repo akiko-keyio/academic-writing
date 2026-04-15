@@ -1,26 +1,32 @@
 ---
 name: academic-writing
-description: Refine academic writing for high-impact peer-reviewed STEM journals (e.g., IEEE, Nature/Science sub-journals, Elsevier, Springer). Use this skill whenever a user asks to improve, polish, refine, edit, or proofread academic or research writing — including paper drafts, abstracts, introductions, methodology, results, discussions, or conclusion sections.
+description: Refine academic writing for high-impact peer-reviewed STEM journals (e.g., IEEE, Nature/Science sub-journals, Elsevier, Springer). Use this skill whenever a user asks to improve, polish, refine, edit, or proofread academic or research writing — including paper drafts, abstracts, introductions, methodology, results, discussions, or conclusion sections. Operates on an existing draft; if the input is only notes or an outline, ask for a prose paragraph first.
 ---
 
 # Academic Writing
 
 ## First Principle
 
-> **Communicate valuable and verifiable ideas precisely and efficiently.**
+> **Communicate valuable and verifiable ideas, precisely and efficiently.**
 
-| Atom            | Core question                                      | What it demands                                                                                                |
-| --------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **Communicate** | Is it impossible for the reader not to understand? | Follow the reader's cognitive path, not the author's discovery path. Bridge from known to unknown for readers. |
-| **Valuable**    | Why should the reader care?                        | Establish importance before asking the reader to invest in details.                                            |
-| **Verifiable**  | Can the reader check every claim?                  | Provide sufficient detail for reproduction. Conclusions follow logically from exhibited evidence.              |
-| **Ideas**       | What must the reader know?                         | Identify the key points the reader must retain from this section.                                              |
-| **Precisely**   | Is misreading impossible?                          | Every expression maps to exactly one meaning.                                                                  |
-| **Efficiently** | Is every element essential?                        | If not, remove it. What remains appears once, in the right place.                                              |
+| Atom            | Core question                                      | What it demands                                              |
+| --------------- | -------------------------------------------------- | ------------------------------------------------------------ |
+| **Communicate** | Is it impossible for the reader not to understand? | Write for the reader's understanding, not the author's discovery. Each point builds on what the reader already knows. |
+| **Valuable**    | Why should the reader care?                        | The reader can see why each point matters before being asked to engage with its details. |
+| **Verifiable**  | Can the reader check every claim?                  | Methods carry sufficient detail for reproduction. Conclusions follow from exhibited evidence — cited, measured, or reasoned. |
+| **Precisely**   | Is misreading impossible?                          | Every expression maps to exactly one meaning.                |
+| **Efficiently** | Is every element essential?                        | If not, remove it.                                           |
 
 ## Workflow
 
-Run Steps 1 → 2 → 3 in order. When the Step 1 Gate halts the workflow and the author supplies clarification or additional material, re-run from Step 1 with the new input integrated.
+Identify the section type from the draft; ask the author if unclear. If multiple sections are provided, operate on one section at a time.
+
+Run Steps 1 → 2 → 3 in order. On re-entry:
+
+- If Step 1 halted and the author supplies clarifying material, re-run from Step 1 on the combined input.
+- If the author returns with Step 2 flags addressed and key points unchanged, re-run from Step 2.
+
+A section is done when Step 1 passes, no flags remain, and Step 3 yields no further meaning-preserving changes.
 
 ### Step 1 — Establish key points
 
@@ -43,27 +49,27 @@ Consult `reference/section-guide.md` to check whether the expected key points fo
 
 - A key point fails **Independent** or **Necessary**.
 - The ordered set is not **Coherent** — the argument does not progress, contradicts itself, or skips a logical step the reader cannot bridge.
-- Required key points for this section type are missing (per `reference/section-guide.md`).
+- Required key points for this section type are missing.
 
-On halt, do not proceed to Step 2 or Step 3. See **Response rules** below. A well-polished sentence that says the wrong thing is worse than a rough sentence that says the right thing.
+On halt, do not proceed to Step 2 or Step 3 and do not produce refined text. For each issue the author must resolve, communicate three things: **what** is wrong (the span or the missing element), **why** it is a problem (which check fails, or which required point is absent), and **what you need from them** to unblock. Phrase each issue however makes those three things clearest. A well-polished sentence that says the wrong thing is worse than a rough sentence that says the right thing.
 
 ### Step 2 — Support key points
 
 With key points established and ordered, check whether each is sufficiently supported.
 
-Support is any content that substantiates a key point — citations, data, experimental results, examples, reasoning chains, method details, comparisons, derivations. For each key point, ask: *would a skeptical reviewer be persuaded by the support provided?*
+Support is any content that substantiates a key point — citations, data, experimental results, examples, reasoning chains, method details, comparisons, derivations. Support is sufficient when a skeptical reviewer at the target venue can check the claim without leaving the text: a cited source for claims about prior work; a pointer to the experiment, number, or derivation (with uncertainty where the claim is quantitative) for claims about this paper; an explicit reasoning chain for causal or mechanistic claims.
 
 Flag every gap:
 
-- **[citation needed]** — claim that should cite prior work.
-- **Unsupported claim** — assertion the author must back with data, reasoning, or reference.
-- **Logical leap** — step in reasoning the reader cannot bridge from what is shown.
+- **`[citation-need]`** — the claim depends on prior work and needs a reference (a fact about the literature, field consensus, or a prior result).
+- **`[evidence-gap]`** — the claim is about this paper's own work (empirical, methodological, or quantitative) but the text does not substantiate it at the level the claim demands. Covers both *no support shown* and *support shown but below threshold*; the diagnosis specifies which.
+- **`[logical-leap]`** — the claim follows from others by a reasoning step the reader cannot reconstruct. The missing piece is inference, not evidence.
 
-Step 2 does not halt. Flags are surfaced in the final output; the author addresses them. Proceed to Step 3.
+Step 2 does not halt; flags travel with the final output for the author to address.
 
 ### Step 3 — Refine language
 
-Refine *how* the key points and their support are expressed. Two atoms govern this step, applied **in order**:
+Refine *how* the key points and their support are expressed **in order**:
 
 **1. Precisely** (first) — eliminate ambiguity. Every term, referent, and claim should have exactly one possible reading. If two readers would extract different meanings from a sentence, rewrite it. Fix precision before cutting anything — trimming text before clarifying meaning risks deleting essential words.
 
@@ -74,23 +80,20 @@ Consult based on what you are refining:
 - **Word choice** (selecting or replacing individual words and phrases) → `reference/word-choice.md`
 - **Sentence and paragraph construction** (information flow, connectors, voice, tense, paragraph function) → `reference/sentence-construction.md`
 
-**Verify** (closing check). Compare the refined text against the Step 1 key points list. Is every key point still present, with its intended meaning intact? If refinement dropped or distorted a key point, restore it before output.
+**Verify**. Confirm that every Step 1 key point is still present and unchanged in meaning. Step 3 refines language, not content; if you find yourself needing to change what the text claims, surface it as a Step 2 flag instead of editing.
 
-## Response rules
+## Response
 
 Output depends on where the workflow stopped:
 
-- **Halt at Step 1 Gate** → Output only the issues the author must clarify or supplement (missing key points, failed Independent/Necessary, incoherent ordering). No refined text.
-- **Step 3 completed** → Output three items:
-  1. **Refined text** — match input format; edit only the prose.
-  2. **Change notes** — brief annotations for non-obvious changes.
-  3. **Flags** — Step 2 support gaps and any remaining issues surfaced during refinement.
+- **Halt at Step 1 Gate** → the halt output described in Step 1, nothing else.
+- **Full pass completed** → three items:
+  1. **Refined text**
+  2. **Flags** — the Step 2 output.
+  3. **Change notes** — brief annotations for non-obvious changes.
 
 ## Constraints
 
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
-
-- State your assumptions about the target audience, tone, and format explicitly. If uncertain, ask.
-- Do not invent content. If something is missing, flag it — do not fabricate claims, results, or citations.
-- Do not insert fancier vocabulary than what is needed. If the original word is correct and simple, keep it.
-- Do not flatten the author's voice. Polish, not homogenize.
+- **Do not invent content.** If something is missing, flag it — do not fabricate claims, results, or citations.
+- **Do not inflate vocabulary.** If the original word is correct and simple, keep it.
+- **Do not flatten the author's voice.** Polish, not homogenize.
