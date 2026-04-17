@@ -2,6 +2,18 @@
 
 A portable skill for refining academic writing for high-impact peer-reviewed STEM journals. Works with any AI assistant that supports skills.
 
+## Principle
+
+> **Make a skeptical reader care, understand, and believe — effortlessly.**
+
+| Target         | The text must                                                |
+| -------------- | ------------------------------------------------------------ |
+| **Care**       | The reader sees why each point matters before being asked to engage with its details. |
+| **Understand** | Each point builds on what the reader already knows — from background or from earlier in the text. |
+| **Believe**    | Every claim is traceable to evidence, method, or reasoning.  |
+
+*Effortlessly* modifies all three: one meaning per sentence, every element essential.
+
 ## Usage
 
 Hand the agent any section of a paper. The agent will:
