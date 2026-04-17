@@ -5,103 +5,77 @@ description: Refine academic writing for high-impact peer-reviewed STEM journals
 
 # Academic Writing
 
-## First Principle
+## Principle
 
-> **Communicate valuable and verifiable ideas, precisely and efficiently.**
+> **Make a skeptical reader care, understand, and believe — effortlessly.**
 
-| Atom            | Core question                                      | What it demands                                              |
-| --------------- | -------------------------------------------------- | ------------------------------------------------------------ |
-| **Communicate** | Is it impossible for the reader not to understand? | Write for the reader's understanding, not the author's discovery. Each point builds on what the reader already knows. |
-| **Valuable**    | Why should the reader care?                        | The reader can see why each point matters before being asked to engage with its details. |
-| **Verifiable**  | Can the reader check every claim?                  | Methods carry sufficient detail for reproduction. Conclusions follow from exhibited evidence — cited, measured, or reasoned. |
-| **Precisely**   | Is misreading impossible?                          | Every expression maps to exactly one meaning.                |
-| **Efficiently** | Is every element essential?                        | If not, remove it.                                           |
+| Target         | The text must                                                |
+| -------------- | ------------------------------------------------------------ |
+| **Care**       | The reader sees why each point matters before being asked to engage with its details. |
+| **Understand** | Each point builds on what the reader already knows — from background or from earlier in the text. |
+| **Believe**    | Every claim is traceable to evidence, method, or reasoning.  |
+
+*Effortlessly* modifies all three: one meaning per sentence, every element essential.
 
 ## Workflow
 
-Identify the section type from the draft; ask the author if unclear. If multiple sections are provided, operate on one section at a time.
+Identify the section type from the draft; ask if unclear. If multiple sections are provided, operate on one at a time in the paper's natural order: abstract → introduction → related work → methods → results → discussion → conclusion.
 
-Work in Stage 1 → 2 → 3 in order.
+Work in **Stage 1 → 2 → 3, one stage per turn**. Advance only on the author's explicit confirmation. Do not produce refined prose before Stage 3 — a polished rewrite delivered before key points are confirmed fails the author's intent regardless of how well it reads.
 
-**One stage per turn.** Complete exactly one stage per assistant turn, then stop and wait. Advance to the next stage only after the user explicitly confirms.
-
-**Do not skip ahead.** Do not produce refined text at Stage 1 or Stage 2, even if the draft looks close to ready. A polished rewrite delivered before key points are confirmed fails the author's intent, regardless of how well the prose reads.
+If the author revises the draft in response to feedback, re-run from the earliest affected stage.
 
 ### Stage 1 — Establish key points
 
-1. Consult `reference/section-guide.md` to determine the expected key points for this section type.
+A key point is a single-sentence statement of what a paragraph is arguing. Supporting details (evidence, examples, context, explanation) are not key points — they serve key points.
 
-2. Extract the key points:
+1. Consult `reference/section-guide.md` for the expected key points and their functional order for this section type.
+2. Extract candidate key points from the draft, stripping supporting detail.
+3. Check each candidate:
+   - **Atomic** — expresses one argumentative move only (no merged context + gap, gap + approach, or claim + justification).
+   - **Independent** — conveys a distinct message; not subsumed by another key point.
+   - **Necessary** — serves a clear function in the section's argument; you can state *why* the reader must know this.
+4. Check the ordered set:
+   - **Complete** — all key points required for this section type (per `section-guide.md`) are present.
+   - **Coherent** — read in order, each point builds on the previous; the argument progresses without logical gaps.
 
-   - A key point is a clear sentence stating the main point or argument of the paragraph.
-   - Strip away all supporting details (explanations, evidence, examples, and context); they are not key points themselves.
-   - The function of each key point should be traceable to `section-guide.md`.
+Stage 1 is diagnostic — surface every problem you find rather than paper over them to advance.
 
-3. Verify each candidate key point:
-
-   - **Independent**: It conveys a distinct message. (Check: It cannot be subsumed by another key point.)
-
-   - **Necessary**: It serves a clear function in the section’s argument. (Check: You can articulate *why* the reader must know this.)
-
-     If a candidate does not pass, return to step 2 and re-extract the key points.
-
-4. Arrange the candidate key points in order:
-
-   - Each key point should build on what the reader already knows from the preceding points.
-   - The key points should follow the section’s functional progression as defined in `section-guide.md`.
-
-**Response.** End the turn after Stage 1 with one of two outputs:
-
-**A. Key points established.** Present the ordered key points as a numbered list. For each, note its function in the section (traceable to `section-guide.md`). Then ask: *"Do these key points match your intent? Confirm to proceed to Stage 2."* Do not proceed without explicit confirmation. Do not include refined prose.
-
-**B. Verification blocked.** If Stage 1 cannot complete — a check fails, a required key point is missing, or the draft's intent is unclear — do not fabricate or guess. For each issue, communicate three things: **what** is wrong (the problematic span or the missing element), **why** it is a problem (which check fails, or which required point is missing), and **what you need from the author** to unblock. Phrase each issue in whatever way makes those three things clearest. A polished sentence that says the wrong thing is worse than a rough sentence that says the right thing.
+**Response.** Present the ordered key points as a numbered list with each point's function, then ask the author to confirm the set matches their intent before Stage 2. If any check fails, a required point is missing, or the draft's intent is unclear, surface each issue with **what** is wrong (the span or missing element), **why** it fails (which check, or which expected point is absent), and **what you need** from the author. Do not guess or fabricate.
 
 ### Stage 2 — Support key points
 
-With the Stage 1 key points confirmed, check whether each is sufficiently supported.
+For each confirmed key point, check whether its support in the draft is sufficient for a skeptical reviewer at the target venue to verify without leaving the text:
 
-1. For each key point, locate its supporting content in the draft.
+- Claims about prior work → a citation.
+- Claims about this paper's own work (empirical, methodological, quantitative) → a pointer to the experiment, number, or derivation, with uncertainty where the claim is quantitative.
+- Causal or mechanistic claims → an explicit reasoning chain.
 
-   Support is any content that substantiates a key point — citations, data, experimental results, examples, reasoning chains, method details, comparisons, derivations.
+Flag every gap with one tag:
 
-2. Assess sufficiency.
+- **`[citation-need]`** — claim depends on prior work and needs a reference.
+- **`[evidence-gap]`** — claim is about this paper's own work but is unsupported or under-supported in the text; specify which.
+- **`[logical-leap]`** — claim follows from others by a reasoning step the reader cannot reconstruct. The missing piece is inference, not evidence.
 
-   Support is sufficient when a skeptical reviewer at the target venue can check the claim without leaving the text: a cited source for claims about prior work; a pointer to the experiment, number, or derivation (with uncertainty where the claim is quantitative) for claims about this paper; an explicit reasoning chain for causal or mechanistic claims.
-
-3. Flag every gap with one of:
-
-   - **`[citation-need]`** — the claim depends on prior work and needs a reference (a fact about the literature, field consensus, or a prior result).
-   - **`[evidence-gap]`** — the claim is about this paper's own work (empirical, methodological, or quantitative) but the text does not substantiate it at the level the claim demands. Covers both *no support shown* and *support shown but below threshold*; the diagnosis specifies which.
-   - **`[logical-leap]`** — the claim follows from others by a reasoning step the reader cannot reconstruct. The missing piece is inference, not evidence.
-
-**Response.** End the turn after Stage 2 with:
-
-1. The ordered key points from Stage 1 (restated for reference).
-2. Each flag with its tag and a one-line diagnosis: which key point it affects, and what specifically is missing.
-3. Ask: *"Confirm to proceed to Stage 3. Flags will be carried forward with the refined text — they are not blockers."*
-
-Stage 2 does not halt on flags. Flags are carried forward, not resolved here. Do not include refined prose.
+**Response.** Restate the ordered key points for reference, then list each flag with its tag, the key point it affects, and what specifically is missing. Ask the author to confirm before Stage 3; flags travel forward with the refined text and are not blockers.
 
 ### Stage 3 — Refine language
 
-Refine *how* the key points and their support are expressed, in this order:
+Refine *how* key points and their support are expressed, in this order:
 
-1. **Precisely** (first) — eliminate ambiguity. Every term, referent, and claim should have exactly one possible reading. If two readers would extract different meanings from a sentence, rewrite it. Fix precision before cutting anything — trimming text before clarifying meaning risks deleting essential words.
+1. **Precisely** — eliminate ambiguity. If two readers could extract different meanings from a sentence, rewrite it. Fix precision before cutting; trimming before clarifying risks deleting essential words.
+2. **Efficiently** — eliminate waste. Every word, sentence, and paragraph must contribute to the reader's understanding of a key point. If it doesn't, remove it. If information appears twice, keep it where the reader needs it most.
 
-2. **Efficiently** (second) — eliminate waste. Every word, sentence, and paragraph must contribute to the reader's understanding of a key point. If it doesn't, remove it. If information appears in two places, keep it where the reader needs it most.
+Consult references as needed:
+- **Word choice** → `reference/word-choice.md`
+- **Sentence and paragraph construction** (flow, connectors, voice, tense, paragraph function) → `reference/sentence-construction.md`
 
-3. Consult references as needed:
+Verify preservation: every Stage 1 key point must remain present and unchanged in meaning. If refining the language would require changing what the text claims, stop and surface it as a Stage 2 flag instead.
 
-   - **Word choice** (selecting or replacing individual words and phrases) → `reference/word-choice.md`
-   - **Sentence and paragraph construction** (information flow, connectors, voice, tense, paragraph function) → `reference/sentence-construction.md`
-
-4. Verify preservation. Confirm that every Stage 1 key point is still present and unchanged in meaning. Stage 3 refines language, not content; if you find yourself needing to change what the text claims, surface it as a Stage 2 flag instead of editing.
-
-**Response.** End the turn with:
-
-1. **Refined text** — the section rewritten, with all Stage 1 key points preserved in meaning.
-2. **Flags** — Stage 2 flags carried forward (inline markers or a list), so the author can address them.
-3. **Change notes** — brief annotations for non-obvious changes (e.g., merged sentences, restructured paragraphs, replaced terminology).
+**Response.** Return three items:
+1. **Refined text** — the section rewritten, Stage 1 key points preserved.
+2. **Flags** — Stage 2 flags carried forward (inline or listed) for the author to address.
+3. **Change notes** — brief annotations for non-obvious changes only (merged sentences, restructured paragraphs, replaced terminology). Skip obvious cleanups.
 
 ## Constraints
 
