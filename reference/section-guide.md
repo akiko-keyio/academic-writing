@@ -42,15 +42,13 @@ A good title lets a reader scanning a journal page decide in seconds whether thi
 Typically 1–2 pages. The most-read section after the abstract. Its job is to make the reader care and then show them what you did about it. In most STEM fields the introduction also carries the background and literature review; a separate "Related Work" section is mainly a computer-science convention. When a separate section is not used, integrate that material here.
 
 **Structure**:
-1. **Context** — establish the problem domain and its significance. Ground it in something concrete (a real-world need, a scientific question, a measurable gap). Avoid truisms ("X has made remarkable progress").
-2. **Essential background** — include only the knowledge the reader needs to understand the problem and your approach: key concepts, definitions, theoretical frameworks. If extensive background is required, refer readers to reviews or foundational papers rather than reproducing it.
-3. **Prior work & gap** — survey what others have tried and where they fall short. Organize by theme, not by paper: describe the collective approach → highlight key advances → identify the remaining gap. Synthesize rather than list: "Several approaches address X by leveraging Y (A; B; C). However, they share a common limitation…" Be fair — characterize prior work accurately; do not caricature.
-4. **Your approach** — introduce the key idea at a high level. Why should it work where prior methods did not?
-5. **Contributions** — list 2–4 specific, verifiable contributions ("We propose X that achieves Y", not "We study Z").
-6. **Results preview** (optional) — headline numbers that build confidence.
-7. **Roadmap** (optional) — include only if the paper structure is non-standard.
 
-**When a separate Related Work / Background section exists** (common in CS venues, or when the literature is extensive enough to warrant its own section): move items 2–3 out of the Introduction. In the Introduction, briefly motivate the gap (1–2 paragraphs) and leave the full survey to the dedicated section.
+1. **Context** — establish the problem domain and its significance. Ground it in something concrete (a real-world need, a scientific question, a measurable gap). Avoid truisms ("X has made remarkable progress").
+3. **Essential background** — include **only** the knowledge the reader needs to understand the problem and your approach: key concepts, definitions, theoretical frameworks. If extensive background is required, refer readers to reviews or foundational papers rather than reproducing it.
+4. **Gap & prior work** — survey what others have tried and where they fall short. Organize by theme, not by paper: describe the collective approach → highlight key advances → identify the remaining gap. Synthesize rather than list: "Several approaches address X by leveraging Y (A; B; C). However, they share a common limitation…" Be fair — characterize prior work accurately; do not caricature.
+5. **Your approach** — introduce the key idea at a high level. Why should it work where prior methods did not?
+6. **Contributions** — list 2–4 specific, verifiable contributions ("We propose X that achieves Y", not "We study Z").
+7. **Roadmap** (optional) — include only if the paper structure is non-standard.
 
 **Avoid**: Overclaiming ("We are the first…" — verify, or soften with "To the best of our knowledge"); motivating a solution instead of a problem (start with why, not what); burying the contribution in vague language; laundry-list literature reviews ("A did X. B did Y. C did Z.").
 
@@ -63,7 +61,7 @@ Typically 1–2 pages. The most-read section after the abstract. Its job is to m
 Common as a standalone section in Earth-, environmental-, remote-sensing-, and observational-science papers where the data pipeline is substantial enough to merit its own treatment, upstream of the methods that operate on the data. In other fields this content is folded into Experiments (Datasets) or Methods (Materials); the principles below apply either way.
 
 **Structure**:
-1. **Source description** — for each data product: provider, version, spatial/temporal resolution, coverage window. Name the document, DOI, or access point so the reader could request the same inputs.
+1. **Source descripti-on** — for each data product: provider, version, spatial/temporal resolution, coverage window. Name the document, DOI, or access point so the reader could request the same inputs.
 2. **Quality control** — selection criteria, filtering thresholds, handling of missing or low-confidence values. State what is excluded and why.
 3. **Preprocessing & integration** — transformations applied before downstream use (coordinate alignment, height normalization, unit conversion). When multiple sources are combined, describe the alignment strategy and the fusion rule (interpolation, Kriging, weighted mean, model-based merger).
 4. **Train/test or calibration/validation splits** — if the data serve both model fitting and evaluation, declare the split explicitly. Independence between splits is a claim the reader must be able to verify.
