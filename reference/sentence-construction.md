@@ -1,8 +1,8 @@
 # Sentence Construction
 
-The reader encounters text one sentence at a time. Good structure respects this: it delivers known information before new, connects each statement to what came before, and gives every paragraph a single clear purpose. When structure fails, the reader re-reads — or worse, misreads.
+The reader encounters text one sentence at a time. Good structure respects this: it delivers known information before new, carries one claim per sentence, connects each statement to what came before, and gives every paragraph a single clear purpose. When structure fails, the reader re-reads — or worse, misreads.
 
-This guide covers: information ordering, logical connections, voice and tense, paragraph architecture, and narrative framing of data.
+This guide covers: claim structure, information ordering, logical connections, voice and tense, paragraph architecture, and narrative framing of data.
 
 ---
 
@@ -33,7 +33,19 @@ How a sentence begins sets the reader's frame for processing everything that fol
 
 **Avoid opening with -ing forms or prepositions** (especially *for* and *with*) — they delay the subject and make the sentence harder to parse.
 
-## 4. Signalling Connectors
+## 4. One Claim Per Sentence
+
+Each sentence should advance a single claim. A sentence that simultaneously pushes a main claim, inserts a definition, and offers an example forces the reader to process three threads at once — and, worse, to guess which is the main line. When the next sentence continues the main claim, the reader must backtrack to re-locate it.
+
+Definitions and examples have their own value, but as separate sentences — placed before or after the main claim, not folded into it.
+
+**Bad:** "We evaluate the model on ImageNet, a dataset of 1.2M labeled images across 1000 classes, achieving 85% top-1 accuracy."
+
+**Better:** "We evaluate the model on ImageNet, a dataset of 1.2M labeled images across 1000 classes. The model achieves 85% top-1 accuracy."
+
+The first version packs the definition of ImageNet and the result into the same sentence. The second separates them: one sets up the evaluation, the next states the result. Each carries one claim.
+
+## 5. Signalling Connectors
 
 Words like *moreover*, *therefore*, *however* are not glue — they are directional signals. Each one tells the reader what relationship the next sentence has to the previous one. The wrong connector sends the reader in the wrong direction.
 
@@ -47,7 +59,7 @@ Words like *moreover*, *therefore*, *however* are not glue — they are directio
 
 **Notice:** Using *moreover* or *furthermore* as generic paragraph glue when there is no additive logical relationship. If the connection is simply "here is the next point," no connector is needed — just start the sentence.
 
-## 5. Passive Voice and Ownership
+## 6. Passive Voice and Ownership
 
 **Agentless passives** (*was performed*, *was analysed* — without saying by whom) hide the actor. This is fine for well-known standard procedures ("Samples were centrifuged at 3000 rpm"), but costs clarity when describing your own contribution. If the reader can't tell whether the work is yours, a predecessor's, or the field's consensus, the sentence has failed.
 
@@ -58,13 +70,13 @@ Words like *moreover*, *therefore*, *however* are not glue — they are directio
 **Bad:** "Images and patient data from seventeen patients who were suspected of having PH and who had also undergone cardiac MRI and right-sided heart catheterization between 2002 and 2008 were retrospectively reviewed."
 **Better:** "We retrospectively reviewed images and patient data from seventeen patients suspected of having PH who had undergone cardiac MRI and right-sided heart catheterization between 2002 and 2008."
 
-## 6. Disambiguating *We*
+## 7. Disambiguating *We*
 
 Impersonal *we/us/our* can mean "we the authors," "we the research community," or "we, everyone." If you use *we* for both yourself and the broader field within the same paper, confusion is inevitable.
 
 For field-wide capabilities, prefer impersonal constructions: "It is now possible to design proteins with new functions" rather than "We can now design proteins with new functions" — unless *you* are the ones who made it possible.
 
-## 7. Verb Tense
+## 8. Verb Tense
 
 Tense is not decoration — it communicates how you want the reader to treat the information.
 
@@ -77,7 +89,7 @@ Tense is not decoration — it communicates how you want the reader to treat the
 
 **Be consistent within a section.** If you switch tense, make sure there is a reason and the reader can follow it.
 
-## 8. Paragraph Structure
+## 9. Paragraph Structure
 
 Plan the function of each paragraph before writing it. Each paragraph should have a single function — describe one result, introduce one concept, make one argument.
 
@@ -87,7 +99,7 @@ Plan the function of each paragraph before writing it. Each paragraph should hav
 
 **Every sentence must serve the paragraph's function.** If a sentence doesn't fit, move it or delete it — don't let it float.
 
-## 9. Wrapping Data in Narrative
+## 10. Wrapping Data in Narrative
 
 Data alone means nothing to the reader. Don't just state numbers — comment on what they mean for the argument:
 
@@ -98,6 +110,6 @@ The framing tells the reader whether 43% is good news or bad news. Without it, t
 
 This also applies to figures and tables. "Figure 3 shows the temperature profile" tells the reader nothing about *why* they should look at Figure 3. "Figure 3 shows that the temperature profile deviates from the predicted curve above 600°C" gives the reader a reason to look and a frame for what to see.
 
-## 10. Relevance — The "So What?" Test
+## 11. Relevance — The "So What?" Test
 
 After writing each sentence, consider whether the reader knows *why* you wrote it. If a potential "so what?" lingers at the end, resolve it — add a phrase like *suggesting that...*, *which means that...*, or *consistent with...*. Don't leave the reader to guess the relevance.

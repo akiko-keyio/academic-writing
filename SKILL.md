@@ -5,80 +5,142 @@ description: Refine academic writing for high-impact peer-reviewed STEM journals
 
 # Academic Writing
 
-## Principle
+This skill takes an existing draft — at any stage from rough notes to near-final prose — and improves its argument structure, evidence, and language for the target reader.
 
-> **Make a skeptical reader care, understand, and believe — effortlessly.**
+## Principles
 
-| Target         | The text must                                                |
-| -------------- | ------------------------------------------------------------ |
-| **Care**       | The reader sees why each point matters before being asked to engage with its details. |
-| **Understand** | Each point builds on what the reader already knows — from background or from earlier in the text. |
-| **Believe**    | Every claim is traceable to evidence, method, or reasoning.  |
+Every claim in a paper is either already accepted by the reader or not yet. Writing is the work of converting not-yet into accepted, one step at a time: the reader holds claim A, judges from their background that A implies B, and now holds B. 
 
-*Effortlessly* modifies all three: one meaning per sentence, every element essential.
+A paper is the graph of these chains. A good one forms a **pipeline**: make the reader **care** enough to enter, **understand** each step, arrive **convinced** — all **effortlessly**. 
+
+| Target           | Reader question         | The text must                                                                                                   |
+| ---------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Care**         | Why should I enter?     | Open at an unresolved tension the reader already holds; end at a claim that unlocks further reasoning or applications; the connection between them is not one the reader could derive alone. |
+| **Understand**   | Can I follow each step? | Every inference lands inside the reader's background; recurse (insert intermediate claim) until it does. |
+| **Convinced**    | Must I accept?          | Every unstated assumption is one the reader would accept; alternative explanations are addressed.               |
+| **Effortlessly** | At what cost?           | Reader working memory is finite — only recently accepted claims stay accessible. Keep each next step close to what the reader currently holds. |
 
 ## Workflow
 
-Identify the section type from the draft; ask if unclear. If multiple sections are provided, operate on one at a time in the paper's natural order: abstract → introduction → related work → methods → results → discussion → conclusion.
+This workflow helps you systematically find and fix breaks in the author's narrative graph — places where the reader would stop caring, lose the thread, or remain unconvinced. Work in **Stage 0 → 1 → 2 → 3**:
 
-Work in **Stage 1 → 2 → 3, one stage per turn**. Advance only on the author's explicit confirmation. Do not produce refined prose before Stage 3 — a polished rewrite delivered before key points are confirmed fails the author's intent regardless of how well it reads.
+- **Stage 0** — define the target reader
+- **Stage 1** — extract what the draft says and map its argument structure
+- **Stage 2** — check that every claim has sufficient evidence
+- **Stage 3** — rewrite the prose based on the confirmed map
+
+Advance only on the author's confirmation. Never skip stages.
 
 If the author revises the draft in response to feedback, re-run from the earliest affected stage.
 
-### Stage 1 — Establish key points
+### Stage 0 — Define the Reader
 
-A key point is a single-sentence statement of what a paragraph is arguing. Supporting details (evidence, examples, context, explanation) are not key points — they serve key points.
+Without knowing the reader's background, you can't judge which inferences they can make — so every later decision depends on this step.
 
-1. Consult `reference/section-guide.md` for the expected key points and their functional order for this section type.
-2. Extract candidate key points from the draft, stripping supporting detail.
-3. Check each candidate:
-   - **Atomic** — expresses one argumentative move only (no merged context + gap, gap + approach, or claim + justification).
-   - **Independent** — conveys a distinct message; not subsumed by another key point.
-   - **Necessary** — serves a clear function in the section's argument; you can state *why* the reader must know this.
-4. Check the ordered set:
-   - **Complete** — all key points required for this section type (per `section-guide.md`) are present.
-   - **Coherent** — read in order, each point builds on the previous; the argument progresses without logical gaps.
+Among readers who could plausibly care, pick the one with the weakest background as the baseline — enough depth for them is tolerable redundancy for stronger readers; the reverse fails. For standard STEM journal targets this baseline is a researcher in the same field but not your specific sub-area. Adjust upward for cross-disciplinary venues (Nature, Science, PNAS), downward for sub-specialty journals.
 
-Stage 1 is diagnostic — surface every problem you find rather than paper over them to advance.
+**Persistence.** Check for `<manuscript_directory>/.academic-writing/reader.md`. If it exists and `Confirmed: YES`, skip Stage 0 — report which profile is in use and proceed to Stage 1.
 
-**Response.** Present the ordered key points as a numbered list with each point's function, then ask the author to confirm the set matches their intent before Stage 2. If any check fails, a required point is missing, or the draft's intent is unclear, surface each issue with **what** is wrong (the span or missing element), **why** it fails (which check, or which expected point is absent), and **what you need** from the author. Do not guess or fabricate.
+**If no profile exists**, propose one based on the draft's venue, terminology, and cited literature. Write to `<manuscript_directory>/.academic-writing/reader.md`:
 
-### Stage 2 — Support key points
+```markdown
+# Reader Profile
 
-For each confirmed key point, check whether its support in the draft is sufficient for a skeptical reviewer at the target venue to verify without leaving the text:
+**Paper:** <title or short identifier>
 
-- Claims about prior work → a citation.
-- Claims about this paper's own work (empirical, methodological, quantitative) → a pointer to the experiment, number, or derivation, with uncertainty where the claim is quantitative.
-- Causal or mechanistic claims → an explicit reasoning chain.
+**Who they are:** <one line>
 
-Flag every gap with one tag:
+**Background they reliably have:**
+- <item>
+- ...
 
-- **`[citation-need]`** — claim depends on prior work and needs a reference.
-- **`[evidence-gap]`** — claim is about this paper's own work but is unsupported or under-supported in the text; specify which.
-- **`[logical-leap]`** — claim follows from others by a reasoning step the reader cannot reconstruct. The missing piece is inference, not evidence.
+Confirmed: NO
+```
 
-**Response.** Restate the ordered key points for reference, then list each flag with its tag, the key point it affects, and what specifically is missing. Ask the author to confirm before Stage 3; flags travel forward with the refined text and are not blockers.
+Ask the author to confirm or edit. On confirmation, flip to `Confirmed: YES` with a date stamp. Proceed to Stage 1.
 
-### Stage 3 — Refine language
 
-Refine *how* key points and their support are expressed, in this order:
 
-1. **Precisely** — eliminate ambiguity. If two readers could extract different meanings from a sentence, rewrite it. Fix precision before cutting; trimming before clarifying risks deleting essential words.
-2. **Efficiently** — eliminate waste. Every word, sentence, and paragraph must contribute to the reader's understanding of a key point. If it doesn't, remove it. If information appears twice, keep it where the reader needs it most.
+### Stage 1 — Map the Argument
 
-Consult references as needed:
-- **Word choice** → `reference/word-choice.md`
-- **Sentence and paragraph construction** (flow, connectors, voice, tense, paragraph function) → `reference/sentence-construction.md`
+Build the argument map in `<manuscript_directory>/.academic-writing/argument-map.md` in two passes, each ending with a diagnose-and-confirm step.
 
-Verify preservation: every Stage 1 key point must remain present and unchanged in meaning. If refining the language would require changing what the text claims, stop and surface it as a Stage 2 flag instead.
+**Pass 1 — paragraph skeleton.** Read what each paragraph currently says and distill it into one claim (P) — a single short sentence that captures the paragraph's point, not a summary of its content. If a paragraph makes two distinct claims, split it into two P's. Each P carries a role tag from `reference/section-guide.md` (which defines each section's pipeline role and expected structure). Leave sub-claims to Pass 2.
 
-**Response.** Return three items:
-1. **Refined text** — the section rewritten, Stage 1 key points preserved.
-2. **Flags** — Stage 2 flags carried forward (inline or listed) for the author to address.
-3. **Change notes** — brief annotations for non-obvious changes only (merged sentences, restructured paragraphs, replaced terminology). Skip obvious cleanups.
+```markdown
+## Introduction
+
+### P1 [Context]: Autonomous drones must plan paths in real time.
+### P2 [Problem]: Obstacle-rich environments make real-time planning intractable.
+### P3 [Prior Work]: Sampling methods are fast but miss narrow passages.
+### P4 [Approach]: A learned heuristic guides sampling toward feasible corridors.
+### P5 [Contributions]: Corridor predictor, guided sampler, and benchmark suite.
+```
+
+After listing all P: **diagnose**. Are the right roles present and in a logical order for this section's pipeline role (see `reference/section-guide.md`)? Can the reader follow from each P to the next? Propose fixes and confirm with the author. Mark confirmed P's with ✓.
+
+**Pass 2 — within-paragraph claims.** For each confirmed P, add `- **C**` sub-items — the steps the reader must follow to arrive at P.
+
+```markdown
+### P2 [Problem]: Obstacle-rich environments make real-time planning intractable. ✓
+- **C1**: Collision checks dominate computation in dense scenes.
+- **C2**: Exact methods scale exponentially with obstacle count.
+- **C3**: Real-time budgets (< 50 ms) leave no room for exhaustive search.
+```
+
+After expanding each P: **diagnose** — can the target reader follow from each C to the next, and from the last C to P?
+
+Two kinds of gap:
+- **Can't follow** — a reasoning step the reader's background can't bridge → add an intermediate C now.
+- **Won't believe** — the reader can follow the logic but would doubt the claim → mark it for Stage 2 (evidence needed).
+
+Also flag: redundant C's, wrong order. Propose fixes. Confirm P-by-P.
+
+### Stage 2 — Check the Evidence
+
+Stage 1 confirmed the reasoning chain is followable. Now check a different thing: does the reader have enough reason to accept each claim?
+
+Goal: every claim in the argument map has sufficient evidence to hold against a skeptical reader.
+
+Walk the argument map and add **evidence** as sub-items beneath each C:
+
+```markdown
+- **C1**: [claim] ✓
+  - E: [citation]
+  - E: [own data / derivation]
+  - ⚠️ [gap: what is missing]
+```
+
+For each claim, ask:
+- Are the hidden assumptions ones the target reader would accept?
+- Has the obvious counter-argument been addressed?
+
+For key claims (contributions, main findings), additionally:
+- Is the claim supported by at least two independent paths — different data, different method, or different angle?
+
+Across the whole argument map:
+- Which step is most likely to be rejected by the target reader, and has that step been given extra support?
+
+**Flag gaps, never fabricate.** Identify what is missing and where — never invent a citation, number, or result to fill it. The author supplies the evidence; the agent localizes the need.
+
+Ask the author which flags to address before moving to Stage 3.
+
+### Stage 3 — Rewrite the Prose
+
+Goal: rewrite the prose section by section based on the confirmed argument map. Make every claim frictionless to read.
+
+**Sentences.** Anchor each sentence in what the reader just learned (known-first, new-last). One claim per sentence. Connectors (*however / therefore / moreover*) must encode real logical relations. Tense encodes commitment — past for observations, present for general claims.
+
+**Words.** Prefer simple words to fancy ones (use, not utilize). Cut anything that doesn't advance an inference. Quantify the vague. Use technical terms by their precise definition. One concept = one word throughout the paper.
+
+**Precision before efficiency** — fix ambiguity before cutting length.
+
+Every confirmed key point must survive unchanged in meaning. If a rewrite would alter a claim, surface it as a Stage 2 issue instead.
+
+Consult as needed: `reference/word-choice.md`, `reference/sentence-construction.md`, `reference/section-guide.md`.
 
 ## Constraints
 
-- **Do not invent content.** If something is missing, flag it — do not fabricate claims, results, or citations.
-- **Do not inflate vocabulary.** If the original word is correct and simple, keep it.
-- **Do not flatten the author's voice.** Polish, not homogenize.
+- **Never fabricate.** No invented citations, data, or results — flag the gap, let the author fill it.
+- **Never skip stages.** Every transition waits on the author's confirmation.
+- **Never alter meaning.** Polish expression, not substance. If a rewrite changes a claim, surface it in Stage 2.
